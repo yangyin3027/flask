@@ -44,13 +44,16 @@ def predict():
                                    img_path='static/'+file.filename)
         try:
             # convert that to bytes
-            file.save('static/' + file.filename)
-            img_bytes = file.read()
+            img_path = 'static/' + file.filename
+            file.save(img_path)
+            with open(img_path, 'rb') as f:
+                img_bytes = f.read()
             class_id, class_name = get_prediction(image_bytes=img_bytes)
             output = {'class_id': class_id,
                             'class_name': class_name}
+            
             return render_template('index.html', prediction=output,
-                                   img_path='static/'+file.filename)
+                                   img_path=img_path)
         except:
             return render_template('index.html', prediction='error in prediction',
                                    img_path='static/'+file.filename)
