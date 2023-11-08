@@ -9,7 +9,7 @@ from torchvision import models
 from PIL import Image
 
 app = Flask(__name__)
-imagenet_class_index = json.load(open('app/imagenet_class_index.json'))
+imagenet_class_index = json.load(open('imagenet_class_index.json'))
 model = models.densenet121(weights='IMAGENET1K_V1')
 model.eval()
 
