@@ -1,4 +1,4 @@
-gunicorn==21.0.1
-flask==2.2.2
+gunicorn
+flask
 --index-url https://download.pytorch.org/whl/cpu
 torchvision==0.15.2
