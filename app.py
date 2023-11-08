@@ -44,6 +44,7 @@ def predict():
                                    img_path='static/'+file.filename)
         try:
             # convert that to bytes
+            file.save('static/' + file.filename)
             img_bytes = file.read()
             class_id, class_name = get_prediction(image_bytes=img_bytes)
             output = {'class_id': class_id,
